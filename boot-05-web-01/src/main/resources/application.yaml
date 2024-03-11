@@ -1,0 +1,21 @@
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: false   # springboot中，使用默认的filter，从而使用页面表单（比如index.html）的REST风格，需设为true
+    contentnegotiation:
+      favor-parameter: true # 开启SpringMVC自动配置的请求参数形式的内容协商
+#      media-types: {gg: application/x-guigu}  # 便捷的设置添加自定义的mediatype
+  #    static-path-pattern: /res/**     # 修改访问静态资源的前缀（并不是目录），方便拦截器放行
+  resources:
+#    static-locations: [classpath:/haha/]    # 修改访问静态资源的目录：此处改为类路径下haha文件夹下，路径前仍需加上修改后的前缀
+#    add-mappings: false   # 设置为false禁用所有静态资源
+    cache:
+      period: 11000
+
+server:
+  servlet:
+    context-path: /world  # 添加整个项目内容的访问路径
+    encoding:
+      force: true   # 配置编码格式，使浏览器编译的中文不乱码
+

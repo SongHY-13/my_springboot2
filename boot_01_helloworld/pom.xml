@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.song</groupId>
+    <artifactId>boot_01_helloworld</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+<!--父项目依赖管理-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.4.RELEASE</version>
+    </parent>
+
+
+    <dependencies>
+
+        <!--引入哪个场景后该场景的自动配置才会开启       -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+<!--        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-batch</artifactId>
+        </dependency>-->
+
+    <!-- 引入lombok依赖，然后安装插件，父项目lombok已声明了版本     -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+    <!--引入额外开发工具，功能包括：重启（修改项目后build或快捷键ctrl+F9生效，
+        例如helloController修改后组件重新注册，例如静态页面修改）
+        热更新：JRebel 需付费使用-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+
+        <!--自动版本仲裁：
+                parent父项目依赖管理中声明了mysql-connector-java，无需添加版本号使用，或者在当前项目<properties>中修改-->
+<!--        <dependency>-->
+<!--            <groupId>mysql</groupId>-->
+<!--            <artifactId>mysql-connector-java</artifactId>-->
+<!--        </dependency>-->
+
+    </dependencies>
+
+<!--简化部署：用于将项目快速打包成jar包，在maven管理中点击package即可-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+
+
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--此处可修改为自己使用的mysql版本-->
+<!--        <mysql.version>5.1.43</mysql.version>-->
+    </properties>
+
+</project>

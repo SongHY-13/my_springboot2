@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>shy</title>
+</head>
+<body>
+<h1>请求处理</h1>
+
+测试REST风格；
+<form action="/user" method="get">
+    <input value="REST-GET 提交" type="submit"/>
+</form>
+<form action="/user" method="post">
+    <input value="REST-POST 提交" type="submit"/>
+</form>
+<form action="/user" method="post">
+    <input name="_m" value="delete"/>   <!--增加自定义HiddenHttpMethodFilter的匹配参数 -->
+    <input name="_method" type = "hidden" value="delete"/>
+    <input value="REST-DELETE 提交" type="submit"/>
+</form>
+<form action="/user" method="post">
+    <input name="_method" type="hidden" value="PUT"/>
+    <input value="REST-PUT 提交" type="submit"/>
+</form>
+
+<hr/>
+测试基本注解：{}仅为语法，实际网址不需要
+<ul>
+    <a href="car/3/owner/lisi?age=22&inters=badminton&inters=game">car/{id}/owner/{username}</a>
+    <li>@PathVariable（从路径中获取变量值）</li>
+    <li>@RequestHeader（获取请求头）</li>
+    <li>@RequestParam（获取请求参数）</li>
+    <li>@CookieValue（获取cookie值）</li>
+    <li>@RequestBody（获取请求体[仅限POST请求存在，如表单提交]）</li>
+
+    <li>@MatrixVariable（矩阵变量）</li>
+    <li>@RequestAttribute（获取request域属性）</li>
+</ul>
+<form action="/save" method="post">
+    测试@RequestBody获取请求体中的数据 <br/>
+    用户名：<input name="userName"/> <br>
+    邮箱：<input name="email"/>
+    <input type="submit" value="提交"/>
+</form>
+<hr/> 矩阵变量与普通查询字符串： </br>
+queryString(查询字符串）： /cars/{path}?xxx=xxx&aaa=ccc  使用@RequestParam获取 <br/>
+矩阵变量形式（使用;）： /cars/{path;low=34;brand=byd,audi,bjd}  <br/>
+使用场景： 页面开发时，cookie禁用了，session里面的内容如何使用；<br/>
+session.set(a,b)---> jsessionid ---> cookie ----> 每次发请求都携带（因此可通过cookie反向获取）。<br/>
+url重写（解决Cookie禁用时获取Session内容的问日）： /abc;jsessionid=xxx   把cookie的值使用矩阵变量的方式进行传递。 <br/>
+
+<a href="/cars/sell;low=34;brand=byd,audi,yd">@MatrixVariable（矩阵变量书写方式一）</a>  <br/>
+<a href="/cars/sell;low=34;brand=byd;brand=audi;brand=yd">@MatrixVariable（矩阵变量书写二）</a>  <br/>
+<a href="/boss/1;age=20/2;age=10">@MatrixVariable（双路径，绑定的矩阵变量名相同）：/boss/{bossId}/{empId}</a>
+<br/>
+
+<ol>
+    <li>矩阵变量需要在SpringBoot中手动开启</li>
+    <li>根据RFC3986的规范，矩阵变量应当绑定在路径变量中，结合路径查看！</li>
+    <li>若是有多个矩阵变量，应当使用英文符号;进行分隔。</li>
+    <li>若是一个矩阵变量有多个值，应当使用英文符号,进行分隔，或者命名多个重复的key用;分隔。</li>
+    <li>如：/cars/sell;low=34;brand=byd,audi,yd</li>
+</ol>
+<hr/>
+
+<form action="/saveuser?format=json" method="post">
+    姓名： <input name="userName" value="zhangsan"/> <br/>
+    年龄： <input name="age" value="18"/> <br/>
+    生日： <input name="birth" value="2019/12/10"/> <br/>
+<!--    宠物姓名：<input name="pet.name" value="阿猫"/><br/>-->
+<!--    宠物年龄：<input name="pet.age" value="5"/>-->
+    宠物： <input name="pet" value="阿狗,3"/>
+    <input type="submit" value="保存"/>
+</form>
+</body>
+</html>

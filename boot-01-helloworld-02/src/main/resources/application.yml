@@ -1,0 +1,41 @@
+person:
+  user-name: 小李\n小王
+  boss: true
+  birth: 1987/03/04
+  age: 37
+#  interests:
+#    - 篮球
+#    - 羽毛球
+#    - 别在这理发店
+  interests: [游戏,给侄女买个啥好]
+  animal: [菠萝,根号三]
+#  score: {eng: 80,math: 90}
+  score:
+    eng: 0
+    math: 100
+  salarys:
+    - 4000.11
+    - 7000.22
+  pet:
+    name: 菠萝
+    weight: 5.3
+  all-pets:
+    sick:
+      - {name: 阿猫, weight: 3.12}
+      - name: 阿狗
+        weight: 5.22
+    health:
+      - name: 小鸟
+        weight: 2.14
+      - {name: 知识雪豹,weight: 75}
+
+
+
+#spring:
+#  banner:
+#    image:
+#      location: 夜猫.png
+#  cache:
+#    type: redis
+#    redis:
+#      time-to-live: 11000
