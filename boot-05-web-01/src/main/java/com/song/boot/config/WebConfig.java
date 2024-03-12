@@ -72,7 +72,6 @@ public class WebConfig {
                 configurer.mediaType( "gg", MediaType.parseMediaType("application/x-guigu"));
             }
 
-
             @Override    // 添加自定义的消息转换器
             public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
                 converters.add(new GuiguMessageConverter());
