@@ -2,7 +2,6 @@ package com.song.admin.config;
 
 import com.song.admin.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -13,12 +12,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  *          2、在Spring容器中注册这个拦截器（实现WebMvcConfigurerAdapter的addInterceptors方法）;
  *          3、指定拦截规则【注意/**拦截所有，包括静态资源】
  *
- *          定制化 web应用
+ *          定制化 web应用：@EnableWebMvc + implement WebMvcConfigurer 全面接管SpringMVC
  *
  * @Create : 2024/2/26 -16:31
  * @Version : v1.0
  */
-@EnableWebMvc  // 全面接管SpringMVC：默认的静态资源、视图解析器、欢迎页。。。全部失效
+//@EnableWebMvc  // 全面接管SpringMVC：默认的静态资源、视图解析器、欢迎页。。。全部失效
 @Configuration
 public class AdminWebConfig implements WebMvcConfigurer {
     /**
