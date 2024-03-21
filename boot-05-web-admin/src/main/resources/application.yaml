@@ -1,0 +1,46 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3307/atguigu?serverTimezone=Asia/Shanghai
+#   版本 <=5.7（使用服务器时区） 或 >=8.0.25（自动识别时区），可省略serverTimezone=Asia/Shanghai
+    username: root
+    password: 997899901
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    type: com.zaxxer.hikari.HikariDataSource  # 默认配置，可以忽略
+#    max-active: 12
+#    filters: stat,wall
+
+    druid:
+      filters: stat,wall,slf4j   # 使用默认配置的filters： stat(sql监控），wall(防火墙，防sql注入)
+      filter:             # 每个filter单独自定义配置
+        stat:
+          enabled: true
+          slow-sql-millis: 1000
+          log-slow-sql: true
+        wall:
+          enabled: true
+          config:
+            drop-table-allow: false
+
+      aop-patterns: com.song.admin.*   # Druid和Spring关联监控所在包
+
+      stat-view-servlet:  # 配置Druid监控页
+        enabled: true
+        login-username: admin
+        login-password: admin
+        reset-enable: false
+
+      web-stat-filter:  #采集web-jdbc关联监控的数据
+        enabled: true
+        url-pattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+  jdbc:
+    template:
+      query-timeout: 3
+
+# 配置mybatis规则
+mybatis:
+#  config-location: classpath:mybatis/mybatis-config.xml  # 全局配置文件未位置
+  mapper-locations: classpath:mybatis/mapper/*.xml   # sql映射文件位置
+  configuration:
+    map-underscore-to-camel-case: true  # 开启驼峰命名
+

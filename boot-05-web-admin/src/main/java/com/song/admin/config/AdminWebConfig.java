@@ -20,6 +20,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 //@EnableWebMvc  // 全面接管SpringMVC：默认的静态资源、视图解析器、欢迎页。。。全部失效
 @Configuration
 public class AdminWebConfig implements WebMvcConfigurer {
+
     /**
      *    定义静态资源行为
      * @param registry
@@ -37,7 +38,8 @@ public class AdminWebConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
        registry.addInterceptor(new LoginInterceptor())
                .addPathPatterns("/**")                // 添加拦截路径，/**表示拦截所有请求,包括静态资源
-               .excludePathPatterns("/", "/login","/css/**","/fonts/**", "/images/**", "/js/**", "/aa/**" );   // 添加放行的请求
+               .excludePathPatterns("/", "/login","/css/**","/fonts/**", "/images/**",
+                       "/js/**", "/aa/**", "/sql");     // 添加放行的请求
     }
 /*    @Bean
     public WebMvcRegistrations webMvcConfigurer() {

@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Arrays;
 
 /**
- * Description:  注册原生Servlet组件：1、原生注解注册；
- *                                 2、Spring方式：配置类 + @Bean注册
+ * Description:  注册原生Servlet组件：1、原生注解注册；MyServlet、MyFilter、MyServletContextListener
+ *                                 2、Spring方式：配置类 + @Bean + RegistrationBean注册
  *
  * @Create : 2024/3/11 -17:37
  * @Version : v1.0

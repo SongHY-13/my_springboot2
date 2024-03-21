@@ -1,8 +1,5 @@
 package com.song.admin.exception;
 
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,8 +14,8 @@ import java.io.IOException;
  * @Version : v1.0
  */
 
-@Order(Ordered.HIGHEST_PRECEDENCE)   // 设置优先级（数字越小优先级越高） ，为了让自定义的异常处理齐先执行
-@Component
+//@Order(Ordered.HIGHEST_PRECEDENCE)   // 设置优先级（数字越小优先级越高） ，为了让自定义的异常处理齐先执行
+//@Component
 public class CustomerHandlerExceptionResolver implements HandlerExceptionResolver {
     @Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
