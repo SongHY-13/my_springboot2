@@ -50,8 +50,8 @@ queryString(查询字符串）： /cars/{path}?xxx=xxx&aaa=ccc  使用@RequestPa
 session.set(a,b)---> jsessionid ---> cookie ----> 每次发请求都携带（因此可通过cookie反向获取）。<br/>
 url重写（解决Cookie禁用时获取Session内容的问日）： /abc;jsessionid=xxx   把cookie的值使用矩阵变量的方式进行传递。 <br/>
 
-<a href="/cars/sell;low=34;brand=byd,audi,yd">@MatrixVariable（矩阵变量书写方式一）</a>  <br/>
-<a href="/cars/sell;low=34;brand=byd;brand=audi;brand=yd">@MatrixVariable（矩阵变量书写二）</a>  <br/>
+<a href="/cars/sell;low=34;brand=byd,audi,yd">@MatrixVariable（矩阵变量书写方式一：brand=byd,audi,yd）</a>  <br/>
+<a href="/cars/sell;low=34;brand=byd;brand=audi;brand=yd">@MatrixVariable（矩阵变量书写二：brand=byd;brand=audi;brand=yd）</a>  <br/>
 <a href="/boss/1;age=20/2;age=10">@MatrixVariable（双路径，绑定的矩阵变量名相同）：/boss/{bossId}/{empId}</a>
 <br/>
 

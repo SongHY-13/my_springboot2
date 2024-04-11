@@ -26,14 +26,14 @@ import java.util.Map;
 public class RequestController {
 
     @GetMapping("/testmv")
-    public  String testMV(Map<String,Object> map, Model model){
+    public String testMV(Map<String,Object> map, Model model){
         map.put("开工","二月19日");
         model.addAttribute("驾校","报名");
         return "测试一下非跳转请求时，执行完目标方法mv的值:当view有值或参数为model或map时都不为null";
     }
 
     @GetMapping("/params")
-    public  String testParams(Map<String,Object> map, Model model,HttpServletRequest request, HttpServletResponse response){
+    public String testParams(Map<String,Object> map, Model model,HttpServletRequest request, HttpServletResponse response){
         map.put("复炸","全麦面包好难吃");
         model.addAttribute("modelx","tsl");
         request.setAttribute("Servlet api","解析器ServletRequestMethodArgumentResolver");

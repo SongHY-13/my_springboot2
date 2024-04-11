@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.song.admin.mapper.CityMapper">
+    <!--    void insert(City city);-->
+    <!-- 下面使用自增主键后，会将生成的主键值放回对应City的bean的属性中-->
+    <insert id="insert"  useGeneratedKeys = "true"  keyProperty = "id">
+        insert into city(name,state,country) values(#{name},#{state},#{country})
+    </insert>
+</mapper>

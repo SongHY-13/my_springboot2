@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class ViewTestController {
-
-
     @GetMapping("/atguigu")
     public String atguigu(Model model) {
         // model中的数据会放在请求域中被传递到页面中

@@ -67,12 +67,12 @@ public class WebConfig {
                 configurer.strategies(Arrays.asList(paramStrategy, headerStrategy));
             }*/
 
-            @Override   // 不覆盖SpringMVC配置的内容协商，在这之上添加，也可通过
+            @Override   // 不覆盖SpringMVC配置的内容协商，在这之上添加策略，也可通过
             public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
                 configurer.mediaType( "gg", MediaType.parseMediaType("application/x-guigu"));
             }
 
-            @Override    // 添加自定义的消息转换器
+            @Override    // 添加自定义的消息转换器：此时基于请求头方式（软件测试工具）可返回自定义格式的消息
             public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
                 converters.add(new GuiguMessageConverter());
             }

@@ -39,7 +39,7 @@ public class AdminWebConfig implements WebMvcConfigurer {
        registry.addInterceptor(new LoginInterceptor())
                .addPathPatterns("/**")                // 添加拦截路径，/**表示拦截所有请求,包括静态资源
                .excludePathPatterns("/", "/login","/css/**","/fonts/**", "/images/**",
-                       "/js/**", "/aa/**", "/sql");     // 添加放行的请求
+                       "/js/**", "/aa/**", "/sql","/city");     // 添加放行的请求
     }
 /*    @Bean
     public WebMvcRegistrations webMvcConfigurer() {

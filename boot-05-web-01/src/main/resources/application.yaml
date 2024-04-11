@@ -15,7 +15,7 @@ spring:
 
 server:
   servlet:
-    context-path: /world  # 添加整个项目内容的访问路径
+#    context-path: /world  # 添加整个项目内容的访问路径
     encoding:
       force: true   # 配置编码格式，使浏览器编译的中文不乱码
 

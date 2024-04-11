@@ -20,15 +20,12 @@ spring:
           enabled: true
           config:
             drop-table-allow: false
-
       aop-patterns: com.song.admin.*   # Druid和Spring关联监控所在包
-
       stat-view-servlet:  # 配置Druid监控页
         enabled: true
         login-username: admin
         login-password: admin
         reset-enable: false
-
       web-stat-filter:  #采集web-jdbc关联监控的数据
         enabled: true
         url-pattern: /*
@@ -39,7 +36,7 @@ spring:
 
 # 配置mybatis规则
 mybatis:
-#  config-location: classpath:mybatis/mybatis-config.xml  # 全局配置文件未位置
+#  config-location: classpath:mybatis/mybatis-config.xml  # 全局配置文件的位置
   mapper-locations: classpath:mybatis/mapper/*.xml   # sql映射文件位置
   configuration:
     map-underscore-to-camel-case: true  # 开启驼峰命名

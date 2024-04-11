@@ -35,11 +35,11 @@
             <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
 
-        <!-- 数据源配置： 1、jdbc场景 + mysql驱动(版本仲裁)  -->
-        <dependency>
+        <!-- 数据源配置： 1、jdbc场景（后面引入mybatis会重复，不需单独引入） + mysql驱动(版本仲裁)  -->
+ <!--       <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jdbc</artifactId>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -50,19 +50,25 @@
             <artifactId>druid</artifactId>
             <version>1.1.17</version>
         </dependency>-->
-
-        <!--官方 starter 方式-->
+        <!--官方 starter 导入druid-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>1.1.17</version>
         </dependency>
-        <!--整合mybatis-->
-        <dependency>
+        <!--整合mybatis， mybatis-plus里包含了其核心包，也不需要引用了-->
+ <!--       <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.1.4</version>
+        </dependency>-->
+        <!-- 导入mybatis-plus-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.4.1</version>
         </dependency>
+
 
 
         <dependency>
